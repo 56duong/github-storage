@@ -8,6 +8,23 @@ A lightweight TypeScript library that lets you use a **GitHub repository as a si
 
 
 
+## 📚 Table of Contents
+
+1. [GitStorage](#️gitstorage)  
+2. [Why GitStorage exists](#why-gitstorage-exists)  
+3. [Installation](#installation)  
+4. [Quick token setup](#quick-token-setup)  
+5. [Limitations](#️limitations)  
+6. [Class: GitStorage](#️class-gitstorage)  
+7. [Example: Angular File Manager with GitStorage](#example-angular-file-manager-with-gitstorage)  
+8. [Contributing](#contributing)
+
+
+
+---
+
+
+
 ## 💡 Why GitStorage exists
 
 Sometimes you just need something *online* fast — for a quick test, school project, or small idea.  
@@ -50,7 +67,7 @@ When creating the token, select only the repository you need and set these permi
   - Read access to metadata  
   - Read & Write access to code and issues
 
-<img src="./images/generate-token.png" alt="Generate token" style="width: 768px; border: 1px solid lightgray;" />
+<img src="https://github.com/56duong/github-storage/raw/main/images/generate-token.png" alt="Generate token" style="width: 768px; border: 1px solid lightgray;" />
 
 
 ---
@@ -169,7 +186,7 @@ const blob = db.base64ToBlob(base64Data);
 Below is a complete example showing how to use **GitStorage** inside an Angular component  
 to **upload**, **update**, **download**, and **delete** files in a GitHub repository.
 
-<img src="./images/example.png" alt="Example" style="width: 768px; border: 1px solid lightgray;" />
+<img src="https://github.com/56duong/github-storage/raw/main/images/example.png" alt="Example" style="width: 768px; border: 1px solid lightgray;" />
 
 ### `file-manager.component.html`
 
