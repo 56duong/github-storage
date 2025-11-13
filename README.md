@@ -1,22 +1,6 @@
 # 🗂️ GitStorage
 
-A lightweight TypeScript library that lets you use a **GitHub repository as a simple file database** —  
-upload, update, delete, and fetch files through the GitHub REST API.
-
-
-
----
-
-
-
-## 🚀 Features
-
-- 📦 Store and retrieve files directly in your GitHub repository  
-- 🔑 Supports both **public** and **private** repositories (with token authentication)  
-- 🧩 Simple, promise-based API with TypeScript support  
-- 🔁 Works with web apps, Node.js, and Angular  
-- ⚡ Can be deployed and cached — but sometimes GitHub caching may delay the newest file data  
-- 📊 Includes repo info like rate limits and cache headers
+A lightweight TypeScript library that lets you use a **GitHub repository as a simple file database** — upload, update, delete, and fetch files through the GitHub REST API.
 
 
 
@@ -66,8 +50,7 @@ When creating the token, select only the repository you need and set these permi
   - Read access to metadata  
   - Read & Write access to code and issues
 
-![Generate token](./images/generate-token.png)
-
+<img src="./images/generate-token.png" alt="Generate token" style="width: 768px; border: 1px solid lightgray;" />
 
 
 ---
@@ -110,7 +93,7 @@ Example
 
 ```ts
 const db = new GitStorage('56duong', 'my-storage-repo', {
-token: 'your_github_pat_here',
+  token: 'your_token_here',
 });
 ```
 
@@ -181,12 +164,12 @@ const blob = db.base64ToBlob(base64Data);
 
 
 
-## 🧩 Example: Angular File Manager with GitStorage
+## 🚀 Example: Angular File Manager with GitStorage
 
 Below is a complete example showing how to use **GitStorage** inside an Angular component  
 to **upload**, **update**, **download**, and **delete** files in a GitHub repository.
 
-![Example](./images/example.png)
+<img src="./images/example.png" alt="Example" style="width: 768px; border: 1px solid lightgray;" />
 
 ### `file-manager.component.html`
 
