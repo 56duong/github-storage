@@ -13,23 +13,27 @@
     "build": "tsc"
   },
   "keywords": [
-    "github",
-    "api",
-    "typescript",
-    "library",
+    "github-api",
+    "github-storage",
+    "github-database",
+    "file-storage",
+    "cloud-storage",
     "octokit",
-    "file-storage"
+    "free-storage",
+    "data-storage",
+    "lightweight-storage",
+    "simple-database"
   ],
   "author": "56duong",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/56duong.git"
+    "url": "https://github.com/56duong/github-storage"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/56duong/issues"
+    "url": "https://github.com/56duong/github-storage/issues"
   },
-  "homepage": "https://github.com/yourusername/56duong#readme",
+  "homepage": "https://github.com/56duong/github-storage#readme",
   "dependencies": {
     "@octokit/rest": "^18.12.0"
   },

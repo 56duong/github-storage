@@ -1,4 +1,4 @@
-# 🗂️ GitStorage
+# GitStorage
 
 A lightweight TypeScript library that lets you use a **GitHub repository as a simple file database** — upload, update, delete, and fetch files through the GitHub REST API.
 
@@ -8,7 +8,7 @@ A lightweight TypeScript library that lets you use a **GitHub repository as a si
 
 
 
-## 📚 Table of Contents
+## Table of Contents
 
 1. [GitStorage](#️gitstorage)  
 2. [Why GitStorage exists](#why-gitstorage-exists)  
@@ -25,7 +25,7 @@ A lightweight TypeScript library that lets you use a **GitHub repository as a si
 
 
 
-## 💡 Why GitStorage exists
+## Why GitStorage exists
 
 Sometimes you just need something *online* fast — for a quick test, school project, or small idea.  
 But most services now ask for payment methods, have limits, or need too much setup.
@@ -45,7 +45,7 @@ Use it when you want something simple, free, and instant — just don’t expect
 
 
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm i github-storage
@@ -56,7 +56,7 @@ npm i github-storage
 
 
 
-## 🔐 Quick token setup
+## Quick token setup
 
 Go to https://github.com/settings/personal-access-tokens to create a new token.  
 When creating the token, select only the repository you need and set these permissions:
@@ -74,7 +74,7 @@ When creating the token, select only the repository you need and set these permi
 
 
 
-## ⚠️ Limitations
+## Limitations
 
 - **Caching**: GitHub may return cached responses for repository content. This means that after uploading or updating a file, immediate reloads may not always show the latest file version due to caching. You can inspect the HTTP headers (like `etag` and `cache-control`) from `getRepoInfo()` to check for caching and freshness.
  
@@ -181,7 +181,7 @@ const blob = db.base64ToBlob(base64Data);
 
 
 
-## 🚀 Example: Angular File Manager with GitStorage
+## Example: Angular File Manager with GitStorage
 
 Below is a complete example showing how to use **GitStorage** inside an Angular component  
 to **upload**, **update**, **download**, and **delete** files in a GitHub repository.
@@ -417,7 +417,7 @@ export class FileManagerComponent {
 ---
 
 
-## 🤝 Contributing
+## Contributing
 
 Pull requests are welcome!  
 If you find a bug or want to add new features, feel free to:
