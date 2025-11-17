@@ -10,13 +10,13 @@ A lightweight TypeScript library that lets you use a **GitHub repository as a si
 
 ## Table of Contents
 
-1. [GitStorage](#️gitstorage)  
-2. [Why GitStorage exists](#why-gitstorage-exists)  
-3. [Installation](#installation)  
-4. [Quick token setup](#quick-token-setup)  
-5. [Limitations](#️limitations)  
-6. [Class: GitStorage](#️class-gitstorage)  
-7. [Example: Angular File Manager with GitStorage](#example-angular-file-manager-with-gitstorage)  
+1. [GitStorage](#️gitstorage)
+2. [Why GitStorage exists](#why-gitstorage-exists)
+3. [Installation](#installation)
+4. [Quick token setup](#quick-token-setup)
+5. [Limitations](#limitations)
+6. [Class: GitStorage](#class-gitstorate)
+7. [Example: Angular File Manager with GitStorage](#example-angular-file-manager-with-gitstorage)
 8. [Contributing](#contributing)
 
 
