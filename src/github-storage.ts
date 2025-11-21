@@ -1,4 +1,5 @@
 import { Octokit } from '@octokit/rest';
+import { v1 as uuidv1, v3 as uuidv3, v4 as uuidv4, v5 as uuidv5 } from 'uuid';
 
 /**
  * GitStorage provides methods to interact with a GitHub repository
@@ -304,6 +305,59 @@ export class GitStorage {
     });
 
     return { path, deleted: true };
+  }
+
+
+
+  /**
+   * Gets the repository file path from a GitHub raw download URL.
+   * @param url Full GitHub raw content URL
+   * @returns File path inside the repository or null if not matching
+   * 
+   * @example
+   * const path = db.getPathFromDownloadUrl('https://raw.githubusercontent.com/owner/repo/main/folder/file.txt');
+   * console.log(path); // 'folder/file.txt'
+   * 
+   * const path2 = db.getPathFromDownloadUrl('https://raw.githubusercontent.com/56duong/myrepotest/main/files/inside/banner.jpg?token=ASL99LVKQQQVMS4FGWSM2M9JEBSPP');
+   * console.log(path2); // 'files/inside/banner.jpg'
+   */
+  getPathFromDownloadUrl(url: string): string | null {
+    const regex = new RegExp(`https://raw\\.githubusercontent\\.com/${this.owner}/${this.repo}/[^/]+/(.+)`);
+    const match = url.match(regex);
+    if (!match) return null;
+    return match[1].split('?')[0];
+  }
+
+
+
+  /**
+   * Generates a UUID string using the specified version.
+   * @param version UUID version: 'v1', 'v3', 'v4', or 'v5'
+   * @param name For v3/v5, the name string (required)
+   * @param namespace For v3/v5, the namespace UUID (required)
+   * @returns UUID string
+   * 
+   * @example
+   * db.generateUuid('v1'); // 92e9c320-c6e1-11f0-9896-67ef8894be42
+   * db.generateUuid('v3', 'name-string', '6ba7b810-9dad-11d1-80b4-00c04fd430c8'); // ecfd5fb8-3d80-3939-b543-816f0a8a0799
+   * db.generateUuid('v4'); // dd38293a-7564-5e22-898b-03cae4f0f459
+   * db.generateUuid('v5', 'name-string', '6ba7b810-9dad-11d1-80b4-00c04fd430c8'); // e9a2d9dd-3c10-4c00-84ce-a73b19f2d6a4
+   */
+  generateUuid(version: 'v1' | 'v3' | 'v4' | 'v5', name?: string, namespace?: string): string {
+    switch (version) {
+      case 'v1':
+        return uuidv1();
+      case 'v3':
+        if (!name || !namespace) throw new Error('v3 requires name and namespace');
+        return uuidv3(name, namespace);
+      case 'v4':
+        return uuidv4();
+      case 'v5':
+        if (!name || !namespace) throw new Error('v5 requires name and namespace');
+        return uuidv5(name, namespace);
+      default:
+        throw new Error('Unsupported UUID version');
+    }
   }
 
 }

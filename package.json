@@ -1,6 +1,6 @@
 {
   "name": "github-storage",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A lightweight TypeScript library that lets you use a GitHub repository as a simple file database.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,8 @@
   },
   "homepage": "https://github.com/56duong/github-storage#readme",
   "dependencies": {
-    "@octokit/rest": "^18.12.0"
+    "@octokit/rest": "^18.12.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "typescript": "^5.9.3"

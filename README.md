@@ -175,6 +175,33 @@ Converts a Base64 string into a downloadable Blob.
 const blob = db.base64ToBlob(base64Data);
 ```
 
+### getPathFromDownloadUrl(url: string): string | null
+
+Extracts the file path inside the repository from a GitHub raw download URL.
+
+```ts
+const db = new GitStorage('56duong', 'myrepotest');
+const path = db.getPathFromDownloadUrl('https://raw.githubusercontent.com/56duong/myrepotest/main/files/inside/banner.jpg?token=ASL99LVKQQQVMS4FGWSM2M9JEBSPP');
+console.log(path); // 'files/inside/banner.jpg'
+```
+
+
+### generateUuid(version: 'v1' | 'v3' | 'v4' | 'v5', name?: string, namespace?: string): string
+
+Generates a UUID string using the specified version.
+
+- `'v1'`: Timestamp-based UUID
+- `'v3'`: Namespace-based (MD5)
+- `'v4'`: Random UUID
+- `'v5'`: Namespace-based (SHA-1)
+
+```ts
+db.generateUuid('v1'); // e.g. '92e9c320-c6e1-11f0-9896-67ef8894be42'
+db.generateUuid('v3', 'name-string', '6ba7b810-9dad-11d1-80b4-00c04fd430c8'); // v3, needs name and namespace
+db.generateUuid('v4'); // e.g. 'dd38293a-7564-5e22-898b-03cae4f0f459'
+db.generateUuid('v5', 'name-string', '6ba7b810-9dad-11d1-80b4-00c04fd430c8'); // v5, needs name and namespace
+```
+
 
 
 ---
@@ -369,7 +396,8 @@ export class FileManagerComponent {
     try {
       const base64 = await this.db.fileToBase64(file);
       const path = this.toPath(pathOrName);
-      await this.db.saveFile(base64, path, `Update ${file.name}`);
+      const updated = await this.db.saveFile(base64, pathOrName, `Update ${file.name}`);
+      console.log('Updated', updated);
     } catch (err) {
       console.error('Update failed', err);
     } finally {
